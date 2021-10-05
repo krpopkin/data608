@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<! Display as HTML table code is from
+    https://www.aspsnippets.com/Articles/Import-CSV-File-to-HTML-Table-using-JavaScript.aspx>
+    <html>
+    Problem 2 Part A
+    <br>Display the Presidents csv file as a table <br>
+    The code for this part is from
+    https://www.aspsnippets.com/Articles/Import-CSV-File-to-HTML-Table-using-JavaScript.aspx> <br><br>
+
+    <script type="text/javascript">
+
+        var table = document.createElement("table");
+
+        function Upload() {
+            var fileUpload = document.getElementById("fileUpload");
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+            if (regex.test(fileUpload.value.toLowerCase())) {
+                if (typeof (FileReader) != "undefined") {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        //var table = document.createElement("table");
+                        var rows = e.target.result.split("\n");
+                        for (var i = 0; i < rows.length; i++) {
+                            var cells = rows[i].split(",");
+                            if (cells.length > 1) {
+                                var row = table.insertRow(-1);
+                                for (var j = 0; j < cells.length; j++) {
+                                    var cell = row.insertCell(-1);
+                                    cell.innerHTML = cells[j];
+                                }
+                            }
+                        }
+                        var dvCSV = document.getElementById("dvCSV");
+                        dvCSV.innerHTML = "";
+                        dvCSV.appendChild(table);
+                    }
+                    reader.readAsText(fileUpload.files[0]);
+                } else {
+                    alert("This browser does not support HTML5.");
+                }
+            } else {
+                alert("Please upload a valid CSV file.");
+            }
+        }
+
+        // Functions for Problem 1, Part A
+        function height_weight(inname) {
+            var str
+
+            for (let r = 1; r < 24; r++) {
+                pres_name = table.rows[r].cells[0].innerHTML
+                if (inname == pres_name) {
+                    height = table.rows[r].cells[1].innerHTML
+                    weight = table.rows[r].cells[2].innerHTML
+                    str = 'height: ' + height + ' inches, weight: ' + weight + ' lbs'
+                    break
+                }
+            }
+
+            return (str);
+        }
+
+        function prob2_partB() {
+            var t = document.getElementById("target1");
+            t.innerHTML = height_weight(document.getElementById('presname').value);
+        }
+
+    </script>
+
+    <input type="file" id="fileUpload" />
+    <input type="button" id="upload" value="Upload" onclick="Upload()" />
+    <hr />
+    <div id="dvCSV">
+    </div>
+
+    <br>
+    Problem 2 Part B <br>
+    'Enter a presidents name to see their height and weight'
+    <p>
+    <form>
+        <input id="presname" type="text" size="30">
+        <input type="button" value="enter" onClick="prob2_partB();">
+    </form>
+    </p>
+
+    <div id="target1"></div>
+
+    </html>

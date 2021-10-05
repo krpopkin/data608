@@ -1,0 +1,41 @@
+feature,values_count,missing_values_count
+City,2385,862
+District,2574,673
+Region,2892,355
+Day,2933,314
+Month,3201,46
+Country Code,3213,34
+NRCS and IFRC,3237,10
+ICRC,3237,10
+NNGO,3237,10
+Actor type,3240,7
+Country,3241,6
+Latitude,3241,6
+Longitude,3241,6
+Actor name,3246,1
+Source,3246,1
+Verified,3246,1
+Total kidnapped,3247,0
+Details,3247,0
+Location,3247,0
+Attack context,3247,0
+Means of attack,3247,0
+Gender Unknown,3247,0
+Gender Female,3247,0
+Gender Male,3247,0
+Total affected,3247,0
+Incident ID,3247,0
+Total wounded,3247,0
+Total killed,3247,0
+Total internationals,3247,0
+Internationals kidnapped,3247,0
+Year,3247,0
+Internationals killed,3247,0
+Total nationals,3247,0
+Nationals kidnapped,3247,0
+Nationals wounded,3247,0
+Nationals killed,3247,0
+Other,3247,0
+INGO,3247,0
+UN,3247,0
+Internationals wounded,3247,0
